@@ -35,8 +35,8 @@ svg {
 
 .container {
   margin: 0 auto;
-  /* min-width: 375px; */
-  max-width: 375px;
+  min-width: 375px;
+  /* max-width: 375px; */
   padding: 0 5px 5px 5px;
 }
 section {
@@ -100,7 +100,8 @@ img {
 .menu {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
   gap: 175px;
 }
 
@@ -157,16 +158,14 @@ img {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   padding: 20px 15px;
-  max-width: 355px;
   min-height: 447px;
   position: relative;
   top: 5px;
-  left: 5px;
-  right: 5px;
 }
 
 .avatar-image {
   background-color: transparent;
+  min-width: 131px;
 }
 
 .little-one-section-container-h {
