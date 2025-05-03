@@ -16,5 +16,17 @@
 <symbol id="icon-Vector" viewBox="0 0 37 32">
 <path d="M3.429 27.657l21.943-21.943h-19.657v-4.571h27.429v27.429h-4.571v-19.657l-21.943 21.943-3.2-3.2z"></path>
 </symbol>
+<symbol id="icon-mob" viewBox="0 0 32 32">
+<path fill="#016bff" style="fill: var(--color1, #016bff)" d="M1.6 0.8h28.8c0.442 0 0.8 0.358 0.8 0.8v28.8c0 0.442-0.358 0.8-0.8 0.8h-28.8c-0.442 0-0.8-0.358-0.8-0.8v-28.8c0-0.442 0.358-0.8 0.8-0.8z"></path>
+<path fill="none" stroke="#f3f3f3" style="stroke: var(--color2, #f3f3f3)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.5333" d="M1.6 0.8h28.8c0.442 0 0.8 0.358 0.8 0.8v28.8c0 0.442-0.358 0.8-0.8 0.8h-28.8c-0.442 0-0.8-0.358-0.8-0.8v-28.8c0-0.442 0.358-0.8 0.8-0.8z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.5333" d="M11.85 11.475l8.674 8.674"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.5333" d="M20.527 11.852l-8.674 8.674"></path>
+</symbol>
+<symbol id="icon-Polygon-2" viewBox="0 0 20 32">
+<path d="M20.364 16l-20.364 14.545v-29.091l20.364 14.545z"></path>
+</symbol>
+<symbol id="icon-Vector-1" viewBox="0 0 32 32">
+<path d="M0 28.554l23.631-23.631h-21.169v-4.923h29.538v29.538h-4.923v-21.169l-23.631 23.631-3.446-3.446z"></path>
+</symbol>
 </defs>
 </svg>

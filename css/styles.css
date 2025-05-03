@@ -157,7 +157,7 @@ img {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   padding: 20px 15px;
-  width: 355px;
+  max-width: 355px;
   min-height: 447px;
   position: relative;
   top: 5px;
@@ -217,4 +217,109 @@ img {
   background-color: #0b1a27;
   fill: #fff;
   border-radius: 111px;
+}
+
+/* В стилях додаємо накладку для мобільного меню */
+.mobile-menu-overlay {
+  display: none; /* Спочатку накладка прихована */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9; /* Щоб вона була поверх основного контенту */
+}
+
+.mobile-menu.open ~ .mobile-menu-overlay {
+  display: block; /*Показати накладку, коли меню відкрите  */
+}
+
+/* Мобільне меню */
+.mobile-menu {
+  padding: 15px 15px;
+  position: fixed;
+  top: 0;
+  right: -100%; /* Початково приховане за межами екрану */
+  width: 100%;
+  height: 80%;
+  background: rgba(255, 255, 255, 1);
+  z-index: 10;
+  transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  right: 0; /* Відкривається в межах екрану */
+}
+
+.close-mobile-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  width: 45px;
+  height: 45px;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 29px;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 17px;
+  padding: 11.5px 15px;
+}
+
+.lang-btn {
+  padding: 0px;
+  font-family: HelveticaNeueCyr;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110.00000000000001%;
+  letter-spacing: -2%;
+  color: rgba(11, 26, 39, 0.35);
+}
+
+.lang-btn:hover {
+  color: rgba(1, 107, 255, 1);
+}
+
+.mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu-link {
+  font-family: HelveticaNeueCyr;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110.00000000000001%;
+  letter-spacing: -2%;
+  color: rgba(11, 26, 39, 1);
+  background-color: rgba(243, 243, 243, 1);
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16.5px;
+  padding-bottom: 16.5px;
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.mobile-menu-link:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(11, 26, 39, 1);
+}
+
+.mobile-menu-link:focus {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(11, 26, 39, 1);
 }

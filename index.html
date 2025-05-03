@@ -17,8 +17,35 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div id="header-placeholder"></div>
-
+    <header class="Neway-Grup-header">
+      <div class="container header-container">
+        <nav class="menu">
+          <a href="./index.html" class="main-logo">
+            <svg class="logo-icon" width="10" height="12">
+              <use href="./images/icons.svg#icon-new"></use>
+            </svg>
+            Neway Grup
+          </a>
+          <ul class="menu-list">
+            <li><a href="#" class="menu-link">Contacts</a></li>
+            <li><a href="#" class="menu-link">Contacts</a></li>
+            <li><a href="#" class="menu-link">Contacts</a></li>
+            <li><a href="#" class="menu-link">Contacts</a></li>
+            <li><a href="#" class="menu-link">Contacts</a></li>
+            <li><a href="#" class="menu-link">Contacts</a></li>
+          </ul>
+          <button
+            id="openMobileMenu"
+            aria-label="Open mobile menu"
+            class="button-menu"
+          >
+            Menu
+          </button>
+        </nav>
+      </div>
+    </header>
+    <!-- Підключення JS -->
+    <script src="script.js" defer></script>
     <main>
       <section class="Neway-Grup-title">
         <div class="container one-section-container">
@@ -54,15 +81,70 @@
       </section>
     </main>
 
-    <script>
-      fetch("./header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        })
-        .catch((error) =>
-          console.error("Помилка при завантаженні header:", error)
-        );
-    </script>
+    <!-- Мобільне меню -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <!-- Додано накладку -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="language-switcher">
+          <button type="button" class="lang-btn">UAN</button>
+          <button type="button" class="lang-btn">PL</button>
+          <button type="button" class="lang-btn">ENG</button>
+        </div>
+
+        <button
+          type="button"
+          class="close-mobile-menu"
+          id="closeMobileMenu"
+          aria-label="mobile-menu-btn"
+        >
+          <svg width="45" height="45">
+            <use
+              href="./images/icons.svg#icon-mob"
+              width="45"
+              heigth="45"
+            ></use>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-menu-list">
+        <li class="mobile-menu-link">
+          О нас
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Polygon-2"></use>
+          </svg>
+        </li>
+        <li class="mobile-menu-link">
+          Для работодателя
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Polygon-2"></use>
+          </svg>
+        </li>
+        <li class="mobile-menu-link">
+          Для работника
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Polygon-2"></use>
+          </svg>
+        </li>
+        <li class="mobile-menu-link">
+          Контакты
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Polygon-2"></use>
+          </svg>
+        </li>
+        <li class="mobile-menu-link">
+          Оставить заявку
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Polygon-2"></use>
+          </svg>
+        </li>
+        <li class="mobile-menu-link">
+          Сообщить о нарушении
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Vector-1"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
