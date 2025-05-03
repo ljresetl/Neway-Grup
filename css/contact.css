@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  color: #0b1a27;
+  background: transparent;
+}
+a,
+button,
+svg,
+input,
+input::placeholder {
+  transition-duration: 250ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+svg {
+  background-color: transparent;
+}
+
+.container {
+  margin: 0 auto;
+  /* min-width: 375px; */
+  max-width: 375px;
+  padding: 0 5px 5px 5px;
+}
+section {
+  padding: 0px; /*тільки вгору або вниз */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: currentColor;
+  cursor: pointer;
+  font-style: normal;
+  text-decoration: none;
+}
+button {
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  font-family: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Neway-Grup-vakansii */
+.Neway-Grup-header {
+  display: none;
+}
+
+.two-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: HelveticaNeueCyr;
+  text-align: center;
+  background: linear-gradient(
+    200.57deg,
+    #25dbf1 0%,
+    #1470f5 53.69%,
+    #0c3ff2 100.38%,
+    #042896 153.42%
+  );
+  width: 375px;
+  height: 1546px;
+  gap: 10px;
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+.two-section-container-h {
+  font-weight: 550;
+  font-size: 24px;
+}
+
+.two-section-container-ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.two-section-container-li {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 5px;
+  max-width: 155px;
+}
+
+.card-name {
+  font-weight: 400;
+  font-size: 15.26px;
+}
+
+.card-email,
+.card-region-title {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.card-region-title-p {
+  font-weight: 550;
+  font-size: 10px;
+}
+
+.card-regions {
+  font-weight: 400;
+  font-size: 10px;
+}

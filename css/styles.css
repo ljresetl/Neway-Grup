@@ -172,6 +172,7 @@ img {
 .little-one-section-container-h {
   font-weight: 400;
   font-size: 35px;
+  line-height: 100%;
 }
 
 .little-one-section-container-p {
@@ -216,70 +217,4 @@ img {
   background-color: #0b1a27;
   fill: #fff;
   border-radius: 111px;
-}
-
-/* Neway-Grup-vakansii */
-.two-section-container {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  font-family: HelveticaNeueCyr;
-  text-align: center;
-  background: linear-gradient(
-    200.57deg,
-    #25dbf1 0%,
-    #1470f5 53.69%,
-    #0c3ff2 100.38%,
-    #042896 153.42%
-  );
-  width: 375px;
-  height: 1546px;
-  gap: 10px;
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-  border-radius: 10px;
-}
-
-.two-section-container-h {
-  font-weight: 550;
-  font-size: 24px;
-}
-
-.two-section-container-ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.two-section-container-li {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 5px;
-  max-width: 155px;
-}
-
-.card-name {
-  font-weight: 400;
-  font-size: 15.26px;
-}
-
-.card-email,
-.card-region-title {
-  font-weight: 400;
-  font-size: 10px;
-}
-
-.card-region-title-p {
-  font-weight: 550;
-  font-size: 10px;
-}
-
-.card-regions {
-  font-weight: 400;
-  font-size: 10px;
 }
