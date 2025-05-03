@@ -12,7 +12,7 @@ body {
   font-weight: 400;
   font-size: 15px;
   line-height: 100%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   color: #0b1a27;
   background: transparent;
 }
@@ -281,7 +281,7 @@ img {
   font-weight: 400;
   font-size: 16px;
   line-height: 110.00000000000001%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   color: rgba(11, 26, 39, 0.35);
 }
 
@@ -300,7 +300,7 @@ img {
   font-weight: 400;
   font-size: 16px;
   line-height: 110.00000000000001%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   color: rgba(11, 26, 39, 1);
   background-color: rgba(243, 243, 243, 1);
   border-radius: 2px;
@@ -360,7 +360,7 @@ img {
   font-weight: 400;
   font-size: 16px;
   line-height: 110.00000000000001%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   color: rgba(11, 26, 39, 1);
   background-color: rgba(243, 243, 243, 1);
   border-radius: 2px;
