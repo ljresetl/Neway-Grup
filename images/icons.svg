@@ -13,5 +13,8 @@
 <path fill="#0b1a27" style="fill: var(--color1, #0b1a27)" d="M16 0c8.837 0 16 7.163 16 16s-7.163 16-16 16c-8.837 0-16-7.163-16-16s7.163-16 16-16z"></path>
 <path fill="#fff" style="fill: var(--color2, #fff)" d="M13.029 18.331l4.389-4.389h-3.931v-0.914h5.486v5.486h-0.914v-3.931l-4.389 4.389-0.64-0.64z"></path>
 </symbol>
+<symbol id="icon-Vector" viewBox="0 0 37 32">
+<path d="M3.429 27.657l21.943-21.943h-19.657v-4.571h27.429v27.429h-4.571v-19.657l-21.943 21.943-3.2-3.2z"></path>
+</symbol>
 </defs>
 </svg>

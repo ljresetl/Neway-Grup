@@ -14,32 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-
   <body>
-    <header class="Neway-Grup-header">
-      <div class="container header-container">
-        <nav class="menu">
-          <a href="./index.html" class="main-logo">
-            <svg class="logo-icon" width="10" height="12">
-              <use href="./images/icons.svg#icon-new"></use>
-            </svg>
-            Neway Grup
-          </a>
-          <ul class="menu-list">
-            <li><a href="#" class="menu-link">Contacts</a></li>
-            <li><a href="#" class="menu-link">Contacts</a></li>
-            <li><a href="#" class="menu-link">Contacts</a></li>
-            <li><a href="#" class="menu-link">Contacts</a></li>
-            <li><a href="#" class="menu-link">Contacts</a></li>
-            <li><a href="#" class="menu-link">Contacts</a></li>
-          </ul>
-          <button class="button-menu" type="button">Menu</button>
-        </nav>
-      </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
       <section class="Neway-Grup-title">
@@ -50,7 +28,7 @@
               alt="Avatar 1"
               class="avatar-image"
               width="131"
-              heigth="65"
+              height="65"
             />
             <h1 class="little-one-section-container-h">
               Ваш путь к стабильной работе и успеху
@@ -62,15 +40,9 @@
               <span class="p-span">с полной поддержкой на каждом этапе</span>
             </p>
             <div class="button-all-little-one-section-container">
-              <a
-                href="contact.html"
-                class="button-little-one-section-container"
+              <a href="contact.html" class="button-little-one-section-container"
+                >Узнать подробнее о компании</a
               >
-                Узнать подробнее о компании
-              </a>
-              <!-- <button class="button-little-one-section-container" type="button">
-                Узнать подробнее о компании
-              </button> -->
               <button class="icon-button">
                 <svg class="icon" width="35" height="35">
                   <use href="./images/icons.svg#icon-Frame-44"></use>
@@ -81,5 +53,16 @@
         </div>
       </section>
     </main>
+
+    <script>
+      fetch("./header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        })
+        .catch((error) =>
+          console.error("Помилка при завантаженні header:", error)
+        );
+    </script>
   </body>
 </html>
