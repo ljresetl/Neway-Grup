@@ -35,6 +35,7 @@
             <li><a href="#" class="menu-link">Contacts</a></li>
           </ul>
           <button
+            title="Open menu"
             id="openMobileMenu"
             aria-label="Open mobile menu"
             class="button-menu"
@@ -45,7 +46,7 @@
       </div>
     </header>
     <!-- Підключення JS -->
-    <script src="script.js" defer></script>
+    <script src="./script.js" defer></script>
     <main>
       <section class="Neway-Grup-title">
         <div class="container one-section-container">
@@ -87,12 +88,19 @@
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
         <div class="language-switcher">
-          <button type="button" class="lang-btn">UAN</button>
-          <button type="button" class="lang-btn">PL</button>
-          <button type="button" class="lang-btn">ENG</button>
+          <button title="language-switcher" type="button" class="lang-btn">
+            UAN
+          </button>
+          <button title="language-switcher" type="button" class="lang-btn">
+            PL
+          </button>
+          <button title="language-switcher" type="button" class="lang-btn">
+            ENG
+          </button>
         </div>
 
         <button
+          title="close-mobile-menu"
           type="button"
           class="close-mobile-menu"
           id="closeMobileMenu"
@@ -108,38 +116,72 @@
         </button>
       </div>
       <ul class="mobile-menu-list">
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="onas">
           О нас
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Polygon-2"></use>
           </svg>
         </li>
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="forwork">
           Для работодателя
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Polygon-2"></use>
           </svg>
         </li>
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="forworking">
           Для работника
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Polygon-2"></use>
           </svg>
         </li>
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="contact">
           Контакты
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Polygon-2"></use>
           </svg>
         </li>
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="objeck">
           Оставить заявку
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Polygon-2"></use>
           </svg>
         </li>
-        <li class="mobile-menu-link">
+        <li class="mobile-menu-link" data-submenu="objeck2">
           Сообщить о нарушении
+          <svg class="menu-icon" width="10" height="7">
+            <use href="./images/icons.svg#icon-Vector-1"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Підменю на весь екран -->
+    <div class="submenu-fullscreen" id="submenuFullscreen">
+      <div class="button-sub-menu">
+        <button class="close-submenu" id="closeSubmenu">
+          <svg class="icon-closeSubmenu" width="15" height="15">
+            <use href="./images/icons.svg#icon-Vector-2"></use>
+          </svg>
+        </button>
+        <button
+          title="close-mobile-menu-pid"
+          type="button"
+          class="close-mobile-menu-pid"
+          id="closeMobileMenuPid"
+          aria-label="mobile-menu-btn-pid"
+        >
+          <svg width="45" height="45">
+            <use
+              href="./images/icons.svg#icon-mob"
+              width="45"
+              heigth="45"
+            ></use>
+          </svg>
+        </button>
+      </div>
+      <ul class="submenu-list" id="submenuList">
+        <li class="submenu-item">
+          Підпункт 1
           <svg class="menu-icon" width="10" height="7">
             <use href="./images/icons.svg#icon-Vector-1"></use>
           </svg>
