@@ -31,5 +31,11 @@
 <symbol id="icon-Vector-2" viewBox="0 0 32 32">
 <path d="M30.584 17.741h-23.871l10.692 10.692-2.487 2.487-14.919-14.919 14.919-14.919 2.487 2.487-10.692 10.692h23.871v3.481z"></path>
 </symbol>
+<symbol id="icon-Polygon-2-1" viewBox="0 0 40 32">
+<path d="M20 30l-20-28h40l-20 28z"></path>
+</symbol>
+<symbol id="icon-Vector-4" viewBox="0 0 30 32">
+<path fill="#fff" style="fill: var(--color1, #fff)" d="M0 27.657l21.943-21.943h-19.657v-4.571h27.429v27.429h-4.571v-19.657l-21.943 21.943-3.2-3.2z"></path>
+</symbol>
 </defs>
 </svg>

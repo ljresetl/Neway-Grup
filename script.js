@@ -1,78 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Мобільне меню
   const burgerBtn = document.getElementById('openMobileMenu');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  const closeBtn = document.getElementById('closeMobileMenu'); // Кнопка закриття мобільного меню
+  const closeBtn = document.getElementById('closeMobileMenu');
   const submenu = document.getElementById('submenuFullscreen');
   const submenuList = document.getElementById('submenuList');
   const closeSubmenuBtn = document.getElementById('closeSubmenu');
-  const closeSubmenuPid = document.getElementById('closeMobileMenuPid'); // Кнопка закриття підменю
+  const closeSubmenuPid = document.getElementById('closeMobileMenuPid');
   const subsubmenuFullscreen = document.getElementById('subsubmenuFullscreen');
   const subsubmenuList = document.getElementById('subsubmenuList');
-  const closeSubsubmenuBtn = document.getElementById('closeSubsubmenu'); // Кнопка закриття під-підменю
+  const closeSubsubmenuBtn = document.getElementById('closeSubsubmenu');
 
-  // Дані для кожного підменю
+  // Дані для підменю
   const submenuItems = {
     onas: [
       'Гостиничный бизнес',
       'Производство и логистика',
       'Кейтеринг и мероприятия',
       'Офисная работа',
-      'Клининговые услуги',
-      'Новый пункт 1',
-      'Новый пункт 2',
-      'Новый пункт 3',
-      'Новый пункт 4',
-      'Новый пункт 5',
-      'Новый пункт 6',
-      'Новый пункт 7',
-      'Новый пункт 8',
-      'Новый пункт 9',
-      'Новый пункт 10'
+      'Клининговые услуги'
     ],
     forwork: [
       'Модели сотрудничества',
       'Этапы сотрудничества',
       'Почему стоит работать с нами',
       'Как работодателю связаться с нами',
-      'Галузи в которых мы работаем',
-      'Новый пункт 11',
-      'Новый пункт 12',
-      'Новый пункт 13',
-      'Новый пункт 14',
-      'Новый пункт 15'
+      'Галузи в которых мы работаем'
     ],
     forworking: [
       'Работа',
       'Обучение и карьерный рост',
       'Легализация',
-      'Помощь в создании резюме',
-      'Новый пункт 16',
-      'Новый пункт 17',
-      'Новый пункт 18',
-      'Новый пункт 19',
-      'Новый пункт 20'
+      'Помощь в создании резюме'
     ],
     contact: ['Для работодателя', 'Для работника'],
     objeck: ['Для работодателя', 'Для работника'],
     objeck2: ['Пожаловаться на что-то']
   };
 
-  // Дані для під-підменю (для "Модели сотрудничества")
+  // Дані для під-підменю
   const subsubmenuItems = {
+    'Работа': [
+      'Гостинничный бизнес',
+      'Повар',
+      'Помощник повара',
+      'Кухонный работник ',
+      'Бармен',
+      'Официант',
+      'Работник ресепшена',
+      'Клининг-специалист',
+      'Производство и логистика',
+      'Оператор погрузчика',
+      'Парковщик',
+      'Оператор упаковки',
+      'Клининг-специалсит',
+      'Работник производства',
+      'Кейтеринг и мероприятия',
+      'Повар',
+      'Помощник повара',
+      'Кухонный работник ',
+      'Офисная работа',
+      'Офисная работа',
+      'Работа в клининге',
+      'Работа в клининге',
+      'Дополнительная работа'
+    ],
     'Модели сотрудничества': [
       'Лизинг персонала',
       'Аутсорсинг персонала',
       'Рекрутинг персонала',
-      'Основные и дополнительные услуги',
-      'Новый пункт 21',
-      'Новый пункт 22',
-      'Новый пункт 23',
-      'Новый пункт 24'
+      'Основные и дополнительные услуги'
     ]
   };
 
-  // Відкрити мобільне меню
+  // Відкриття мобільного меню
   burgerBtn?.addEventListener('click', () => {
     mobileMenu.classList.add('open');
     mobileMenuOverlay.style.display = 'block';
@@ -86,11 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'auto';
   }
 
-  // Закрити мобільне меню через кнопку з id="closeMobileMenu"
   closeBtn?.addEventListener('click', closeMobileMenu);
-  mobileMenuOverlay?.addEventListener('click', closeMobileMenu); // Закриття через overlay
+  mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
 
-  // Обробка кліку на пункт меню з підменю
+  // Обробка кліку на елементи меню з підменю
   const menuLinks = document.querySelectorAll('.mobile-menu-link[data-submenu]');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -98,37 +99,52 @@ document.addEventListener('DOMContentLoaded', () => {
       const items = submenuItems[key];
 
       if (items) {
-        // Очищаємо попередні пункти підменю
         submenuList.innerHTML = '';
 
-        // Додаємо нові пункти підменю
         items.forEach(item => {
           const submenuItem = document.createElement('li');
           submenuItem.classList.add('submenu-item');
-          submenuItem.textContent = item;
 
-          // Якщо для цього пункту є під-підменю, додаємо стрілку
+          const textSpan = document.createElement('span');
+          textSpan.textContent = item;
+          submenuItem.appendChild(textSpan);
+
+          const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          svg.setAttribute("class", "menu-icon");
+          svg.setAttribute("width", "10");
+          svg.setAttribute("height", "7");
+
+          const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+          use.setAttribute("href", "./images/icons.svg#icon-Vector-1");
+          svg.appendChild(use);
+          submenuItem.appendChild(svg);
+
           if (subsubmenuItems[item]) {
-            const icon = document.createElement('svg');
-            icon.classList.add('menu-icon');
-            icon.setAttribute('width', '10');
-            icon.setAttribute('height', '7');
-            icon.innerHTML = '<use href="./images/icons.svg#icon-Vector-1"></use>';
-            submenuItem.appendChild(icon);
-
-            submenuItem.addEventListener('click', () => {
-              // Очищаємо попередні пункти під-підменю
+            submenuItem.addEventListener('click', (e) => {
+              e.stopPropagation();
               subsubmenuList.innerHTML = '';
 
-              // Додаємо пункти під-підменю
               subsubmenuItems[item].forEach(subItem => {
                 const subsubmenuItem = document.createElement('li');
                 subsubmenuItem.classList.add('subsubmenu-item');
-                subsubmenuItem.textContent = subItem;
+
+                const subText = document.createElement('span');
+                subText.textContent = subItem;
+                subsubmenuItem.appendChild(subText);
+
+                const svgSub = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svgSub.setAttribute("class", "menu-icon");
+                svgSub.setAttribute("width", "10");
+                svgSub.setAttribute("height", "7");
+
+                const useSub = document.createElementNS("http://www.w3.org/2000/svg", "use");
+                useSub.setAttribute("href", "./images/icons.svg#icon-Vector-1");
+                svgSub.appendChild(useSub);
+                subsubmenuItem.appendChild(svgSub);
+
                 subsubmenuList.appendChild(subsubmenuItem);
               });
 
-              // Показуємо під-підменю
               submenu.classList.remove('open');
               subsubmenuFullscreen.classList.add('open');
             });
@@ -137,43 +153,79 @@ document.addEventListener('DOMContentLoaded', () => {
           submenuList.appendChild(submenuItem);
         });
 
-        // Показати підменю
         mobileMenu.classList.remove('open');
         submenu.classList.add('open');
       }
     });
   });
 
-  // Закрити підменю
   closeSubmenuBtn?.addEventListener('click', () => {
     submenu.classList.remove('open');
-    mobileMenu.classList.add('open'); // Повернення на мобільне меню
+    mobileMenu.classList.add('open');
   });
 
-  // Закрити підменю через кнопку з id="closeMobileMenuPid" і закрити мобільне меню
   closeSubmenuPid?.addEventListener('click', () => {
     submenu.classList.remove('open');
     mobileMenu.classList.remove('open');
-    mobileMenuOverlay.style.display = 'none'; // Приховуємо overlay
+    mobileMenuOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
   });
 
-  // Закрити під-підменю
   closeSubsubmenuBtn?.addEventListener('click', () => {
     subsubmenuFullscreen.classList.remove('open');
     submenu.classList.add('open');
   });
 
-  // Обробка кліку на пункт підменю з під-підменю
-  document.querySelectorAll('.submenu-item[data-subsubmenu]').forEach(item => {
-    item.addEventListener('click', () => {
-      document.getElementById('submenuFullscreen').style.display = 'none';
-      document.getElementById('subsubmenuFullscreen').style.display = 'block';
+  // --- Перемикач мов ---
+  const toggle = document.getElementById('languageToggleDector');
+  const list = document.getElementById('languageListDector');
+
+  if (toggle && list) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = list.style.display === 'block';
+      list.style.display = isOpen ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', () => {
+      list.style.display = 'none';
+    });
+
+    const langItems = list.querySelectorAll('li');
+    langItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const selectedLang = item.getAttribute('data-lang');
+        toggle.childNodes[0].textContent = selectedLang.toUpperCase();
+        list.style.display = 'none';
+
+        // Тут можна додати логіку перемикання мови
+        console.log('Обрана мова:', selectedLang);
+      });
+    });
+  }
+
+  // Десктопне меню
+  const desktopMenuLinks = document.querySelectorAll('.menu-link[data-submenu]');
+  desktopMenuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const key = link.getAttribute('data-submenu');
+      const items = submenuItems[key];
+
+      if (items) {
+        // Створюємо випадаюче меню з підменю
+        let menu = document.createElement('ul');
+        menu.classList.add('submenu-list');
+        items.forEach(item => {
+          let li = document.createElement('li');
+          li.textContent = item;
+          menu.appendChild(li);
+        });
+
+        link.appendChild(menu);
+        menu.style.display = 'block';  // Відображаємо підменю
+      }
     });
   });
 
-  // Закриття під-підменю
-  document.getElementById('closeSubsubmenu')?.addEventListener('click', () => {
-    document.getElementById('subsubmenuFullscreen').style.display = 'none';
-    document.getElementById('submenuFullscreen').style.display = 'block';
-  });
 });
