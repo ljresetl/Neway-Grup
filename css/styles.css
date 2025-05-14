@@ -46,7 +46,7 @@ section {
 @media only screen and (min-width: 1920px) {
   .container {
     margin: 0 auto;
-    min-width: 1920px;
+    max-width: 1920px;
     padding: 0 15px 15px 15px;
   }
   section {
@@ -247,7 +247,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9; /* Щоб вона була поверх основного контенту */
+  z-index: 9;
 }
 
 .mobile-menu.open ~ .mobile-menu-overlay {
@@ -472,6 +472,12 @@ img {
     display: none;
   }
 
+  .main-logo {
+    margin-left: 50px;
+    font-weight: 550;
+    font-size: 16px;
+  }
+
   .menu-list {
     display: flex;
     gap: 5px;
@@ -527,7 +533,7 @@ img {
   /* Секція */
   .one-section-container {
     background: url("../images/1920(2).png");
-    background-position: center;
+    background-position: center 100%;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 1960px;
@@ -543,19 +549,23 @@ img {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
     padding: 20px 15px;
-    min-width: 1820px;
+    width: calc(100% - 35px);
+    margin: 0 auto;
     position: relative;
-    top: 5px;
+    top: 35px;
     min-height: 657px;
   }
 
   .little-one-section-container-h {
     font-size: 80px;
     text-align: center;
+    max-width: 1050px;
   }
 
   .little-one-section-container-p {
+    text-align: center;
     font-size: 24px;
+    max-width: 570px;
   }
 
   .avatar-image {
@@ -585,4 +595,44 @@ img {
   .icon-dector {
     display: block;
   }
+
+  /* Загальний стиль для підменю */
+
+  /* Загальний стиль контейнера підменю */
+  .desktopSubmenuFullscreen {
+    position: fixed; /* Фіксоване позиціонування для покриття екрану */
+    top: 96px; /* Починається нижче хедера (змініть значення відповідно до висоти хедера) */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 96px); /* Висота екрану мінус висота хедера */
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 999;
+
+    display: none; /* По замовчуванню сховано */
+    flex-direction: row; /* Вміст розташовується в ряд */
+  }
+
+  /* Якщо додати клас .open – підменю відображається */
+  .desktopSubmenuFullscreen.open {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Панель зі списком (25% ширини) */
+  .submenu-panel {
+    width: 25%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid rgba(234, 234, 234, 1);
+    background-color: #6b6363;
+  }
+
+  /* Панель з додатковим вмістом (75% ширини) */
+  /* .submenu-panel-two {
+    width: 75%;
+    height: 100%;
+    background-color: #a02a2a;
+    padding: 20px;
+  } */
 }

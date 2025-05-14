@@ -1,17 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Мобільне меню
-  const burgerBtn = document.getElementById('openMobileMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  const closeBtn = document.getElementById('closeMobileMenu');
-  const submenu = document.getElementById('submenuFullscreen');
-  const submenuList = document.getElementById('submenuList');
-  const closeSubmenuBtn = document.getElementById('closeSubmenu');
-  const closeSubmenuPid = document.getElementById('closeMobileMenuPid');
-  const subsubmenuFullscreen = document.getElementById('subsubmenuFullscreen');
-  const subsubmenuList = document.getElementById('subsubmenuList');
-  const closeSubsubmenuBtn = document.getElementById('closeSubsubmenu');
-
   // Дані для підменю
   const submenuItems = {
     onas: [
@@ -45,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Гостинничный бизнес',
       'Повар',
       'Помощник повара',
-      'Кухонный работник ',
+      'Кухонный работник',
       'Бармен',
       'Официант',
       'Работник ресепшена',
@@ -59,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Кейтеринг и мероприятия',
       'Повар',
       'Помощник повара',
-      'Кухонный работник ',
+      'Кухонный работник',
       'Офисная работа',
       'Офисная работа',
       'Работа в клининге',
@@ -74,14 +61,25 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
-  // Відкриття мобільного меню
+  // ===== Мобільне меню ===== //
+  const burgerBtn = document.getElementById('openMobileMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const closeBtn = document.getElementById('closeMobileMenu');
+  const submenu = document.getElementById('submenuFullscreen');
+  const submenuList = document.getElementById('submenuList');
+  const closeSubmenuBtn = document.getElementById('closeSubmenu');
+  const closeSubmenuPid = document.getElementById('closeMobileMenuPid');
+  const subsubmenuFullscreen = document.getElementById('subsubmenuFullscreen');
+  const subsubmenuList = document.getElementById('subsubmenuList');
+  const closeSubsubmenuBtn = document.getElementById('closeSubsubmenu');
+
   burgerBtn?.addEventListener('click', () => {
     mobileMenu.classList.add('open');
     mobileMenuOverlay.style.display = 'block';
     document.body.style.overflow = 'hidden';
   });
 
-  // Закрити мобільне меню
   function closeMobileMenu() {
     mobileMenu.classList.remove('open');
     mobileMenuOverlay.style.display = 'none';
@@ -91,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn?.addEventListener('click', closeMobileMenu);
   mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
 
-  // Обробка кліку на елементи меню з підменю
   const menuLinks = document.querySelectorAll('.mobile-menu-link[data-submenu]');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -176,7 +173,20 @@ document.addEventListener('DOMContentLoaded', () => {
     submenu.classList.add('open');
   });
 
-  // --- Перемикач мов ---
+  // Закриття підменю при кліку на порожнє місце
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
+      closeMobileMenu();
+    }
+    if (!submenu.contains(e.target) && !submenuList.contains(e.target) && !submenu.querySelector('.submenu-item').contains(e.target)) {
+      submenu.classList.remove('open');
+    }
+    if (!subsubmenuFullscreen.contains(e.target) && !subsubmenuList.contains(e.target)) {
+      subsubmenuFullscreen.classList.remove('open');
+    }
+  });
+
+  // ===== Перемикач мов ===== //
   const toggle = document.getElementById('languageToggleDector');
   const list = document.getElementById('languageListDector');
 
@@ -198,34 +208,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedLang = item.getAttribute('data-lang');
         toggle.childNodes[0].textContent = selectedLang.toUpperCase();
         list.style.display = 'none';
-
-        // Тут можна додати логіку перемикання мови
         console.log('Обрана мова:', selectedLang);
       });
     });
   }
 
-  // Десктопне меню
+  // ===== Десктопне меню (повноекранне підменю зліва) ===== //
   const desktopMenuLinks = document.querySelectorAll('.menu-link[data-submenu]');
+  const desktopSubmenuFullscreen = document.getElementById('desktopSubmenuFullscreen');
+  const desktopSubmenuList = document.getElementById('desktopSubmenuList');
+  const closeDesktopSubmenu = document.getElementById('closeDesktopSubmenu');
+
   desktopMenuLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const key = link.getAttribute('data-submenu');
-      const items = submenuItems[key];
+    const key = link.getAttribute('data-submenu');
+    const items = submenuItems[key];
 
-      if (items) {
-        // Створюємо випадаюче меню з підменю
-        let menu = document.createElement('ul');
-        menu.classList.add('submenu-list');
-        items.forEach(item => {
-          let li = document.createElement('li');
-          li.textContent = item;
-          menu.appendChild(li);
-        });
+    if (!items) return;
 
-        link.appendChild(menu);
-        menu.style.display = 'block';  // Відображаємо підменю
-      }
+    link.addEventListener('mouseenter', () => {
+      desktopSubmenuList.innerHTML = '';
+
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        desktopSubmenuList.appendChild(li);
+      });
+
+      desktopSubmenuFullscreen.classList.add('open');
+    });
+
+    // При виході з зони меню можна закривати — за бажанням
+    link.addEventListener('mouseleave', () => {
+      // desktopSubmenuFullscreen.classList.remove('open');
     });
   });
 
+  closeDesktopSubmenu?.addEventListener('click', () => {
+    desktopSubmenuFullscreen.classList.remove('open');
+  });
 });
